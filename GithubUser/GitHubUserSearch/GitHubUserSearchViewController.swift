@@ -12,7 +12,10 @@ protocol GitHubUserSearchDisplayLogic: AnyObject {
 
 final class GitHubUserSearchViewController: UIViewController, GitHubUserSearchDisplayLogic {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
     var interactor: GitHubUserSearchBusinessLogic?
+    var dataSource: GitHubUserSearchDataSource?
     var router: (NSObjectProtocol & GitHubUserSearchRoutingLogic & GitHubUserSearchDataPassing)?
     
     // MARK: Object lifecycle
@@ -38,6 +41,7 @@ final class GitHubUserSearchViewController: UIViewController, GitHubUserSearchDi
         let router = GitHubUserSearchRouter()
         viewController.interactor = interactor
         viewController.router = router
+        viewController.dataSource = presenter
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController
@@ -52,7 +56,7 @@ final class GitHubUserSearchViewController: UIViewController, GitHubUserSearchDi
     }
     
     func displaySearchUser(viewModel: GitHubUserSearch.SearchUser.ViewModel) {
-        //nameTextField.text = viewModel.name
+        tableView.reloadData()
     }
     
     func displayError(error: Error) {
@@ -70,5 +74,26 @@ extension GitHubUserSearchViewController: UISearchBarDelegate {
         guard name.isEmpty == false else { return }
         
         interactor?.searchUser(request: .init(name:  name))
+        searchBar.resignFirstResponder()
     }
+}
+extension GitHubUserSearchViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        dataSource?.viewModel?.userList.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as UITableViewCell
+        if let cell = cell as? UserCell,
+           dataSource?.viewModel?.userList.count ?? 0 > indexPath.row,
+           let user = dataSource?.viewModel?.userList[indexPath.row] {
+            cell.config(user)
+        }
+        
+        return cell
+    }
+}
+
+extension GitHubUserSearchViewController: UITableViewDelegate {
+    
 }

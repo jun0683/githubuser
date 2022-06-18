@@ -25,8 +25,6 @@ final class MainViewController: UIViewController {
     }
 }
 
-
-
 final class FavoriteUserViewController: UIViewController {
     
     override func viewDidLoad() {

@@ -9,7 +9,8 @@ enum GitHubUserSearch {
     // MARK: Use cases
     struct User {
         let name: String
-        
+        let profileUrl: String
+        let favorite: Bool
     }
     
     enum SearchUser {
@@ -22,6 +23,7 @@ enum GitHubUserSearch {
         }
         
         struct ViewModel {
+            let userList: [User]
         }
     }
 }

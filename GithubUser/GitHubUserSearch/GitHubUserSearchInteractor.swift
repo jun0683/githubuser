@@ -21,7 +21,15 @@ final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUse
     
     func searchUser(request: GitHubUserSearch.SearchUser.Request) {
         worker?.searchUser(name: request.name, completion: { [weak self] result in
-            self?.presenter?.presentSearchUser(response: .init(searchResultModel: result))
+            if case let .success(test) = result {
+                if test.totalCount == 0 {
+                    self?.presenter?.presentSearchUser(response: .init(searchResultModel: .failure(NSError(domain: "", code: -1, userInfo:  [NSLocalizedDescriptionKey: "Empty user"]))))
+                } else {
+                    self?.presenter?.presentSearchUser(response: .init(searchResultModel: result))
+                }
+            } else {
+                self?.presenter?.presentSearchUser(response: .init(searchResultModel: result))
+            }
         })
     }
 }
