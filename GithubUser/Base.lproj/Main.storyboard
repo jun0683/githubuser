@@ -172,9 +172,94 @@
                     <view key="view" contentMode="scaleToFill" id="L99-Zp-dEd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="787"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ikp-IP-mkB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Z9Y-mf-G19" id="j0A-Xf-l9X"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tR8-nr-3im">
+                                <rect key="frame" x="0.0" y="95" width="414" height="692"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FavoriteUserCell" id="7dW-u5-AUn" customClass="FavoriteUserCell" customModule="GithubUser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="48.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7dW-u5-AUn" id="48R-p7-gsc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="poO-Lb-pbv">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="khN-it-IJK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="48.5" height="48.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="khN-it-IJK" secondAttribute="height" multiplier="1:1" id="etc-IR-pZJ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ga-qx-jce">
+                                                            <rect key="frame" x="56.5" y="0.0" width="41.5" height="48.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vl-vN-ZdX">
+                                                            <rect key="frame" x="106" y="0.0" width="50" height="48.5"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53a-8L-nOH">
+                                                            <rect key="frame" x="164" y="0.0" width="250" height="48.5"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="onSelectFavoriteWithSender:" destination="7dW-u5-AUn" eventType="touchUpInside" id="lcu-yu-zZu"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="BvS-nO-Y1T"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="poO-Lb-pbv" secondAttribute="bottom" id="41R-9d-geN"/>
+                                                <constraint firstItem="poO-Lb-pbv" firstAttribute="top" secondItem="48R-p7-gsc" secondAttribute="top" id="GhZ-s3-qKm"/>
+                                                <constraint firstItem="poO-Lb-pbv" firstAttribute="leading" secondItem="48R-p7-gsc" secondAttribute="leading" id="Opa-Ml-Top"/>
+                                                <constraint firstAttribute="trailing" secondItem="poO-Lb-pbv" secondAttribute="trailing" id="UJx-gk-ZdQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="favoriteButton" destination="53a-8L-nOH" id="itV-Bn-Ffn"/>
+                                            <outlet property="nickNameLabel" destination="1ga-qx-jce" id="Bfn-hV-W6V"/>
+                                            <outlet property="profileImageView" destination="khN-it-IJK" id="7YS-HW-Dnh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="EOE-TO-osV" id="eEI-oe-cOs"/>
+                                    <outlet property="delegate" destination="EOE-TO-osV" id="1qa-BQ-l0u"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="smc-2k-gyA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tR8-nr-3im" firstAttribute="leading" secondItem="smc-2k-gyA" secondAttribute="leading" id="8zd-W4-RWf"/>
+                            <constraint firstItem="tR8-nr-3im" firstAttribute="trailing" secondItem="smc-2k-gyA" secondAttribute="trailing" id="Mff-CQ-kbc"/>
+                            <constraint firstItem="ikp-IP-mkB" firstAttribute="top" secondItem="smc-2k-gyA" secondAttribute="top" id="Q5M-NP-mdg"/>
+                            <constraint firstItem="ikp-IP-mkB" firstAttribute="trailing" secondItem="smc-2k-gyA" secondAttribute="trailing" id="ZR0-CV-yQd"/>
+                            <constraint firstItem="smc-2k-gyA" firstAttribute="bottom" secondItem="tR8-nr-3im" secondAttribute="bottom" id="imI-aD-WbQ"/>
+                            <constraint firstItem="ikp-IP-mkB" firstAttribute="leading" secondItem="smc-2k-gyA" secondAttribute="leading" id="ndz-8o-jae"/>
+                            <constraint firstItem="tR8-nr-3im" firstAttribute="top" secondItem="ikp-IP-mkB" secondAttribute="bottom" id="s0l-8y-gGm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="ikp-IP-mkB" id="CoP-1r-NOn"/>
+                        <outlet property="tableView" destination="tR8-nr-3im" id="Jnn-Zt-RkX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Saa-kE-0YD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

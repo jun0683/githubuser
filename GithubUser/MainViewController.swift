@@ -24,11 +24,3 @@ final class MainViewController: UIViewController {
         favoriteUserView.isHidden = sender.selectedSegmentIndex == 0
     }
 }
-
-final class FavoriteUserViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-}

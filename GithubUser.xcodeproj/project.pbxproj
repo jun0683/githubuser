@@ -26,6 +26,13 @@
 		CEE3C38F285E1E7700B3F268 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C38E285E1E7700B3F268 /* UserCell.swift */; };
 		CEE3C391285F45E100B3F268 /* GitHubUserSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE991868285CC5F400B3E1C0 /* GitHubUserSearchPresenter.swift */; };
 		CEE3C392285F45EE00B3F268 /* GitHubUserSearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99186D285CC5F400B3E1C0 /* GitHubUserSearchInteractor.swift */; };
+		CEE3C39A285F4AD200B3F268 /* FavoriteUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C394285F4AD200B3F268 /* FavoriteUserPresenter.swift */; };
+		CEE3C39B285F4AD200B3F268 /* FavoriteUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C395285F4AD200B3F268 /* FavoriteUserWorker.swift */; };
+		CEE3C39C285F4AD200B3F268 /* FavoriteUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C396285F4AD200B3F268 /* FavoriteUserRouter.swift */; };
+		CEE3C39D285F4AD200B3F268 /* FavoriteUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C397285F4AD200B3F268 /* FavoriteUserModels.swift */; };
+		CEE3C39E285F4AD200B3F268 /* FavoriteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C398285F4AD200B3F268 /* FavoriteUserViewController.swift */; };
+		CEE3C39F285F4AD200B3F268 /* FavoriteUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C399285F4AD200B3F268 /* FavoriteUserInteractor.swift */; };
+		CEE3C3A2285F4BAD00B3F268 /* FavoriteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +64,13 @@
 		CE99186C285CC5F400B3E1C0 /* GitHubUserSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserSearchViewController.swift; sourceTree = "<group>"; };
 		CE99186D285CC5F400B3E1C0 /* GitHubUserSearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserSearchInteractor.swift; sourceTree = "<group>"; };
 		CEE3C38E285E1E7700B3F268 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		CEE3C394285F4AD200B3F268 /* FavoriteUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserPresenter.swift; sourceTree = "<group>"; };
+		CEE3C395285F4AD200B3F268 /* FavoriteUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserWorker.swift; sourceTree = "<group>"; };
+		CEE3C396285F4AD200B3F268 /* FavoriteUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserRouter.swift; sourceTree = "<group>"; };
+		CEE3C397285F4AD200B3F268 /* FavoriteUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserModels.swift; sourceTree = "<group>"; };
+		CEE3C398285F4AD200B3F268 /* FavoriteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserViewController.swift; sourceTree = "<group>"; };
+		CEE3C399285F4AD200B3F268 /* FavoriteUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserInteractor.swift; sourceTree = "<group>"; };
+		CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +126,9 @@
 				CE991837285CC03000B3E1C0 /* SceneDelegate.swift */,
 				CE99183B285CC03000B3E1C0 /* Main.storyboard */,
 				CE991865285CC24800B3E1C0 /* MainViewController.swift */,
-				CE991867285CC5DF00B3E1C0 /* GitHubUserSearch */,
 				CE1A6DE0285CD26E00B1A9BD /* Model */,
+				CE991867285CC5DF00B3E1C0 /* GitHubUserSearch */,
+				CEE3C393285F4AB700B3F268 /* FavoriteUser */,
 				CE99183E285CC03200B3E1C0 /* Assets.xcassets */,
 				CE991840285CC03200B3E1C0 /* LaunchScreen.storyboard */,
 				CE991843285CC03200B3E1C0 /* Info.plist */,
@@ -147,6 +162,28 @@
 			isa = PBXGroup;
 			children = (
 				CEE3C38E285E1E7700B3F268 /* UserCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEE3C393285F4AB700B3F268 /* FavoriteUser */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3C3A0285F4B9E00B3F268 /* Cell */,
+				CEE3C394285F4AD200B3F268 /* FavoriteUserPresenter.swift */,
+				CEE3C395285F4AD200B3F268 /* FavoriteUserWorker.swift */,
+				CEE3C396285F4AD200B3F268 /* FavoriteUserRouter.swift */,
+				CEE3C397285F4AD200B3F268 /* FavoriteUserModels.swift */,
+				CEE3C398285F4AD200B3F268 /* FavoriteUserViewController.swift */,
+				CEE3C399285F4AD200B3F268 /* FavoriteUserInteractor.swift */,
+			);
+			path = FavoriteUser;
+			sourceTree = "<group>";
+		};
+		CEE3C3A0285F4B9E00B3F268 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -262,14 +299,21 @@
 			files = (
 				CE991866285CC24800B3E1C0 /* MainViewController.swift in Sources */,
 				CE99186F285CC5F400B3E1C0 /* GitHubUserSearchWorker.swift in Sources */,
+				CEE3C39F285F4AD200B3F268 /* FavoriteUserInteractor.swift in Sources */,
+				CEE3C39E285F4AD200B3F268 /* FavoriteUserViewController.swift in Sources */,
 				CE991870285CC5F400B3E1C0 /* GitHubUserSearchRouter.swift in Sources */,
+				CEE3C39C285F4AD200B3F268 /* FavoriteUserRouter.swift in Sources */,
 				CE991836285CC03000B3E1C0 /* AppDelegate.swift in Sources */,
 				CE991873285CC5F400B3E1C0 /* GitHubUserSearchInteractor.swift in Sources */,
+				CEE3C39A285F4AD200B3F268 /* FavoriteUserPresenter.swift in Sources */,
 				CE1A6DE2285CD27B00B1A9BD /* Model.swift in Sources */,
+				CEE3C3A2285F4BAD00B3F268 /* FavoriteUserCell.swift in Sources */,
 				CE99186E285CC5F400B3E1C0 /* GitHubUserSearchPresenter.swift in Sources */,
 				CE991871285CC5F400B3E1C0 /* GitHubUserSearchModels.swift in Sources */,
 				CE991872285CC5F400B3E1C0 /* GitHubUserSearchViewController.swift in Sources */,
 				CEE3C38F285E1E7700B3F268 /* UserCell.swift in Sources */,
+				CEE3C39B285F4AD200B3F268 /* FavoriteUserWorker.swift in Sources */,
+				CEE3C39D285F4AD200B3F268 /* FavoriteUserModels.swift in Sources */,
 				CE991838285CC03000B3E1C0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
