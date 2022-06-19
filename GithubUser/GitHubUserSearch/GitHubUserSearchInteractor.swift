@@ -33,6 +33,10 @@ final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUse
     }
     
     func favoriteUser(request: GitHubUserSearch.FavoriteUser.Request) {
-        self.presenter?.presentFavoriteUser(response: .init(id: request.id, favorite: true))
+        worker?.setFavoriteID(id: request.id)
+        
+        if let favorite = worker?.getFavoriteID(id: request.id) {
+            presenter?.presentFavoriteUser(response: .init(id: request.id, favorite: favorite))
+        }
     }
 }
