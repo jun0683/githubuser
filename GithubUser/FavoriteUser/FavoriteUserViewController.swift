@@ -41,6 +41,7 @@ final class FavoriteUserViewController: UIViewController, FavoriteUserDisplayLog
         let router = FavoriteUserRouter()
         viewController.interactor = interactor
         viewController.router = router
+        viewController.dataSource = presenter
         interactor.presenter = presenter
         presenter.viewController = viewController
         router.viewController = viewController

@@ -7,6 +7,7 @@ import UIKit
 
 protocol GitHubUserSearchDisplayLogic: AnyObject {
     func displaySearchUser(viewModel: GitHubUserSearch.SearchUser.ViewModel)
+    func displayUpdateFavoriteUser()
     func displayError(error: Error)
 }
 
@@ -17,6 +18,7 @@ final class GitHubUserSearchViewController: UIViewController, GitHubUserSearchDi
     var interactor: GitHubUserSearchBusinessLogic?
     var dataSource: GitHubUserSearchDataSource?
     var router: (NSObjectProtocol & GitHubUserSearchRoutingLogic & GitHubUserSearchDataPassing)?
+    weak var delegate: UpdateFavoriteUserDelegate?
     
     // MARK: Object lifecycle
     
@@ -57,6 +59,10 @@ final class GitHubUserSearchViewController: UIViewController, GitHubUserSearchDi
     
     func displaySearchUser(viewModel: GitHubUserSearch.SearchUser.ViewModel) {
         tableView.reloadData()
+    }
+    
+    func displayUpdateFavoriteUser() {
+        delegate?.updateUser()
     }
     
     func displayError(error: Error) {

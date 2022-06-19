@@ -42,5 +42,6 @@ class GitHubUserSearchPresenter: GitHubUserSearchPresentationLogic, GitHubUserSe
         self.viewModel = viewModel
         
         viewController?.displaySearchUser(viewModel: viewModel)
+        viewController?.displayUpdateFavoriteUser()
     }
 }
