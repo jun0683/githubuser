@@ -33,4 +33,10 @@ final class GitHubUserDB {
             return false
         }
     }
+    
+    func getFavoriteUserList() -> [User] {
+        favoriteIDList.values.filter({
+            $0.favorite
+        })
+    }
 }

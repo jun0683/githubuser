@@ -18,9 +18,8 @@ class FavoriteUserInteractor: FavoriteUserBusinessLogic, FavoriteUserDataStore {
     var worker: FavoriteUserWorker? = FavoriteUserWorker()
     
     func loadFavoriteUser(request: FavoriteUser.LoadFavoriteUser.Request) {
-        worker?.doSomeWork()
+        guard let userList = worker?.loadUserList() else { return }
         
-        let response = FavoriteUser.LoadFavoriteUser.Response()
-        presenter?.presentSomething(response: response)
+        presenter?.presentUserList(response: .init(userList: userList))
     }
 }

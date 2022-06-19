@@ -6,7 +6,7 @@
 import UIKit
 
 protocol FavoriteUserDisplayLogic: AnyObject {
-    func displaySomething(viewModel: FavoriteUser.LoadFavoriteUser.ViewModel)
+    func displayUserList(viewModel: FavoriteUser.LoadFavoriteUser.ViewModel)
 }
 
 
@@ -15,6 +15,7 @@ final class FavoriteUserViewController: UIViewController, FavoriteUserDisplayLog
     @IBOutlet weak var tableView: UITableView!
     
     var interactor: FavoriteUserBusinessLogic?
+    var dataSource: FavoriteUserDataSource?
     var router: (NSObjectProtocol & FavoriteUserRoutingLogic & FavoriteUserDataPassing)?
     
     // MARK: Object lifecycle
@@ -74,8 +75,8 @@ final class FavoriteUserViewController: UIViewController, FavoriteUserDisplayLog
         interactor?.loadFavoriteUser(request: request)
     }
     
-    func displaySomething(viewModel: FavoriteUser.LoadFavoriteUser.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayUserList(viewModel: FavoriteUser.LoadFavoriteUser.ViewModel) {
+        tableView.reloadData()
     }
 }
 
@@ -89,11 +90,17 @@ extension FavoriteUserViewController: UISearchBarDelegate {
 }
 extension FavoriteUserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        dataSource?.viewModel?.userList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteUserCell", for: indexPath) as UITableViewCell
+        
+        if let cell = cell as? FavoriteUserCell,
+           dataSource?.viewModel?.userList.count ?? 0 > indexPath.row,
+           let user = dataSource?.viewModel?.userList[indexPath.row] {
+            cell.config(user)
+        }
         
         return cell
     }

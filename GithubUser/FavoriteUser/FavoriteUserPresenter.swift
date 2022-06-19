@@ -6,16 +6,24 @@
 import UIKit
 
 protocol FavoriteUserPresentationLogic {
-    func presentSomething(response: FavoriteUser.LoadFavoriteUser.Response)
+    func presentUserList(response: FavoriteUser.LoadFavoriteUser.Response)
 }
 
-class FavoriteUserPresenter: FavoriteUserPresentationLogic {
+protocol FavoriteUserDataSource {
+    var viewModel: FavoriteUser.LoadFavoriteUser.ViewModel? { get set }
+}
+
+final class FavoriteUserPresenter: FavoriteUserPresentationLogic, FavoriteUserDataSource {
+    var viewModel: FavoriteUser.LoadFavoriteUser.ViewModel?
     weak var viewController: FavoriteUserDisplayLogic?
     
     // MARK: Do something
     
-    func presentSomething(response: FavoriteUser.LoadFavoriteUser.Response) {
-        let viewModel = FavoriteUser.LoadFavoriteUser.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentUserList(response: FavoriteUser.LoadFavoriteUser.Response) {
+        let viewModel = FavoriteUser.LoadFavoriteUser.ViewModel(userList: response.userList)
+        
+        self.viewModel = viewModel
+        
+        viewController?.displayUserList(viewModel: viewModel)
     }
 }

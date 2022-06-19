@@ -6,6 +6,7 @@
 import UIKit
 
 class FavoriteUserWorker {
-    func doSomeWork() {
+    func loadUserList() -> [User] {
+        GitHubUserDB.shared.getFavoriteUserList()
     }
 }

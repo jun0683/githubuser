@@ -13,9 +13,11 @@ enum FavoriteUser {
         }
         
         struct Response {
+            let userList: [User]
         }
         
         struct ViewModel {
+            let userList: [User]
         }
     }
 }
