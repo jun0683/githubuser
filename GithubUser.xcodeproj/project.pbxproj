@@ -33,6 +33,7 @@
 		CEE3C39E285F4AD200B3F268 /* FavoriteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C398285F4AD200B3F268 /* FavoriteUserViewController.swift */; };
 		CEE3C39F285F4AD200B3F268 /* FavoriteUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C399285F4AD200B3F268 /* FavoriteUserInteractor.swift */; };
 		CEE3C3A2285F4BAD00B3F268 /* FavoriteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */; };
+		CEE3C3A5285F4C3C00B3F268 /* GitHubUserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A4285F4C3C00B3F268 /* GitHubUserDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CEE3C398285F4AD200B3F268 /* FavoriteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserViewController.swift; sourceTree = "<group>"; };
 		CEE3C399285F4AD200B3F268 /* FavoriteUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserInteractor.swift; sourceTree = "<group>"; };
 		CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserCell.swift; sourceTree = "<group>"; };
+		CEE3C3A4285F4C3C00B3F268 /* GitHubUserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				CE1A6DE0285CD26E00B1A9BD /* Model */,
 				CE991867285CC5DF00B3E1C0 /* GitHubUserSearch */,
 				CEE3C393285F4AB700B3F268 /* FavoriteUser */,
+				CEE3C3A3285F4C2600B3F268 /* DB */,
 				CE99183E285CC03200B3E1C0 /* Assets.xcassets */,
 				CE991840285CC03200B3E1C0 /* LaunchScreen.storyboard */,
 				CE991843285CC03200B3E1C0 /* Info.plist */,
@@ -186,6 +189,14 @@
 				CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEE3C3A3285F4C2600B3F268 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				CEE3C3A4285F4C3C00B3F268 /* GitHubUserDB.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				CEE3C39A285F4AD200B3F268 /* FavoriteUserPresenter.swift in Sources */,
 				CE1A6DE2285CD27B00B1A9BD /* Model.swift in Sources */,
 				CEE3C3A2285F4BAD00B3F268 /* FavoriteUserCell.swift in Sources */,
+				CEE3C3A5285F4C3C00B3F268 /* GitHubUserDB.swift in Sources */,
 				CE99186E285CC5F400B3E1C0 /* GitHubUserSearchPresenter.swift in Sources */,
 				CE991871285CC5F400B3E1C0 /* GitHubUserSearchModels.swift in Sources */,
 				CE991872285CC5F400B3E1C0 /* GitHubUserSearchViewController.swift in Sources */,

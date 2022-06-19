@@ -18,7 +18,6 @@ final class UserCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        
         favoriteButton.setImage(UIImage(systemName: "star"), for: .normal)
         favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
     }
