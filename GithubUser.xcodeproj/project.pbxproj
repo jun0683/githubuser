@@ -34,6 +34,7 @@
 		CEE3C39F285F4AD200B3F268 /* FavoriteUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C399285F4AD200B3F268 /* FavoriteUserInteractor.swift */; };
 		CEE3C3A2285F4BAD00B3F268 /* FavoriteUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */; };
 		CEE3C3A5285F4C3C00B3F268 /* GitHubUserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A4285F4C3C00B3F268 /* GitHubUserDB.swift */; };
+		CEE3C3A7285F4FE600B3F268 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A6285F4FE600B3F268 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		CEE3C399285F4AD200B3F268 /* FavoriteUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserInteractor.swift; sourceTree = "<group>"; };
 		CEE3C3A1285F4BAD00B3F268 /* FavoriteUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserCell.swift; sourceTree = "<group>"; };
 		CEE3C3A4285F4C3C00B3F268 /* GitHubUserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserDB.swift; sourceTree = "<group>"; };
+		CEE3C3A6285F4FE600B3F268 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				CE1A6DE1285CD27B00B1A9BD /* Model.swift */,
+				CEE3C3A6285F4FE600B3F268 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				CEE3C39C285F4AD200B3F268 /* FavoriteUserRouter.swift in Sources */,
 				CE991836285CC03000B3E1C0 /* AppDelegate.swift in Sources */,
 				CE991873285CC5F400B3E1C0 /* GitHubUserSearchInteractor.swift in Sources */,
+				CEE3C3A7285F4FE600B3F268 /* User.swift in Sources */,
 				CEE3C39A285F4AD200B3F268 /* FavoriteUserPresenter.swift in Sources */,
 				CE1A6DE2285CD27B00B1A9BD /* Model.swift in Sources */,
 				CEE3C3A2285F4BAD00B3F268 /* FavoriteUserCell.swift in Sources */,

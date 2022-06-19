@@ -12,21 +12,23 @@ final class GitHubUserDB {
     
     private init() {}
     
-    private var favoriteIDList: [Int: Bool] = [:]
+    private var favoriteIDList: [Int: User] = [:]
     
-    func setFavoriteID(id: Int) {
-        if let setedID = favoriteIDList[id] {
-            favoriteIDList[id] = !setedID
+    func setFavoriteID(user: User) {
+        if let setedUser = favoriteIDList[user.id]?.favorite {
+            favoriteIDList[user.id]?.favorite = !setedUser
         } else {
-            favoriteIDList[id] = true
+            var user = user
+            user.favorite = true
+            favoriteIDList[user.id] = user
         }
     }
     
-    func getFavoriteID(id: Int) -> Bool {
-        if let getID = favoriteIDList[id] {
-            return getID
+    func getFavoriteID(user: User) -> Bool {
+        if let getID = favoriteIDList[user.id] {
+            return getID.favorite
         } else {
-            favoriteIDList[id] = false
+            favoriteIDList[user.id] = user
             
             return false
         }

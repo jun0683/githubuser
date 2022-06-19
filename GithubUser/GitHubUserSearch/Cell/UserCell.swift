@@ -22,7 +22,7 @@ final class UserCell: UITableViewCell {
         favoriteButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
     }
     
-    func config(_ user: GitHubUserSearch.User) {
+    func config(_ user: User) {
         if let url = try? user.profileUrl.asURL() {
             profileImageView.kf.setImage(with: url)
         }

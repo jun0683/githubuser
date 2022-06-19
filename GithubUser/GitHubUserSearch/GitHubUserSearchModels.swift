@@ -7,12 +7,6 @@ import UIKit
 
 enum GitHubUserSearch {
     // MARK: Use cases
-    struct User {
-        let name: String
-        let profileUrl: String
-        var favorite: Bool
-        let id: Int
-    }
     
     enum SearchUser {
         struct Request {
@@ -30,7 +24,7 @@ enum GitHubUserSearch {
     
     enum FavoriteUser {
         struct Request {
-            let id: Int
+            let user: User
         }
         
         struct Response {

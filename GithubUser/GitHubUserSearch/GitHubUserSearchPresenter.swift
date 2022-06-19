@@ -21,7 +21,7 @@ class GitHubUserSearchPresenter: GitHubUserSearchPresentationLogic, GitHubUserSe
     func presentSearchUser(response: GitHubUserSearch.SearchUser.Response) {
         switch response.searchResultModel {
         case .success(let result):
-            let userList: [GitHubUserSearch.User] = result.items.map {
+            let userList: [User] = result.items.map {
                 .init(name: $0.login, profileUrl: $0.avatarURL, favorite: $0.favorite, id: $0.id)
             }
             let viewModel = GitHubUserSearch.SearchUser.ViewModel.init(userList: userList)

@@ -89,7 +89,7 @@ extension GitHubUserSearchViewController: UITableViewDataSource {
            let user = dataSource?.viewModel?.userList[indexPath.row] {
             cell.config(user)
             cell.selectFavorite = { [weak self] in
-                self?.interactor?.favoriteUser(request: .init(id: user.id))
+                self?.interactor?.favoriteUser(request: .init(user: user))
             }
         }
         

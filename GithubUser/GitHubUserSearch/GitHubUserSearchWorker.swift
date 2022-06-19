@@ -17,12 +17,12 @@ final class GitHubUserSearchWorker {
             }
     }
     
-    func setFavoriteID(id: Int) {
-        GitHubUserDB.shared.setFavoriteID(id: id)
+    func setFavoriteID(user: User) {
+        GitHubUserDB.shared.setFavoriteID(user: user)
     }
     
-    func getFavoriteID(id: Int) -> Bool {
-        GitHubUserDB.shared.getFavoriteID(id: id)
+    func getFavoriteID(user: User) -> Bool {
+        GitHubUserDB.shared.getFavoriteID(user: user)
     }
     
     private func trasform<T: Decodable>(response: AFDataResponse<T>) -> Result<T, Error> {
