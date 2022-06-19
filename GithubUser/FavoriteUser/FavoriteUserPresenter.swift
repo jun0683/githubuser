@@ -7,6 +7,7 @@ import UIKit
 
 protocol FavoriteUserPresentationLogic {
     func presentUserList(response: FavoriteUser.LoadFavoriteUser.Response)
+    func presentUnfavoriteUser(response: FavoriteUser.UnfavoriteUser.Response)
 }
 
 protocol FavoriteUserDataSource {
@@ -21,6 +22,16 @@ final class FavoriteUserPresenter: FavoriteUserPresentationLogic, FavoriteUserDa
     
     func presentUserList(response: FavoriteUser.LoadFavoriteUser.Response) {
         let viewModel = FavoriteUser.LoadFavoriteUser.ViewModel(userList: response.userList)
+        
+        self.viewModel = viewModel
+        
+        viewController?.displayUserList(viewModel: viewModel)
+    }
+    
+    func presentUnfavoriteUser(response: FavoriteUser.UnfavoriteUser.Response) {
+        guard var viewModel = viewModel else { return }
+        
+        viewModel.userList = viewModel.userList.filter({ $0.id != response.id })
         
         self.viewModel = viewModel
         

@@ -64,16 +64,7 @@ final class FavoriteUserViewController: UIViewController, FavoriteUserDisplayLog
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        doSomething()
-    }
-    
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    func doSomething() {
-        let request = FavoriteUser.LoadFavoriteUser.Request()
-        interactor?.loadFavoriteUser(request: request)
+        interactor?.loadFavoriteUser(request: .init())
     }
     
     func displayUserList(viewModel: FavoriteUser.LoadFavoriteUser.ViewModel) {
@@ -101,6 +92,9 @@ extension FavoriteUserViewController: UITableViewDataSource {
            dataSource?.viewModel?.userList.count ?? 0 > indexPath.row,
            let user = dataSource?.viewModel?.userList[indexPath.row] {
             cell.config(user)
+            cell.selectFavorite = { [weak self] in
+                self?.interactor?.unFavoriteUser(request: .init(user: user))
+            }
         }
         
         return cell

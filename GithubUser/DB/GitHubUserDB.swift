@@ -34,6 +34,10 @@ final class GitHubUserDB {
         }
     }
     
+    func unfavoriteUser(user: User) {
+        favoriteIDList[user.id] = nil
+    }
+    
     func getFavoriteUserList() -> [User] {
         favoriteIDList.values.filter({
             $0.favorite

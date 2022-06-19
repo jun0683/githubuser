@@ -17,7 +17,17 @@ enum FavoriteUser {
         }
         
         struct ViewModel {
-            let userList: [User]
+            var userList: [User]
+        }
+    }
+    
+    enum UnfavoriteUser {
+        struct Request {
+            let user: User
+        }
+        
+        struct Response {
+            let id: Int
         }
     }
 }
