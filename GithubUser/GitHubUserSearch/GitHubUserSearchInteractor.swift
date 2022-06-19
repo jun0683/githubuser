@@ -7,6 +7,7 @@ import UIKit
 
 protocol GitHubUserSearchBusinessLogic {
     func searchUser(request: GitHubUserSearch.SearchUser.Request)
+    func favoriteUser(request: GitHubUserSearch.FavoriteUser.Request)
 }
 
 protocol GitHubUserSearchDataStore {
@@ -24,12 +25,14 @@ final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUse
             if case let .success(test) = result {
                 if test.totalCount == 0 {
                     self?.presenter?.presentSearchUser(response: .init(searchResultModel: .failure(NSError(domain: "", code: -1, userInfo:  [NSLocalizedDescriptionKey: "Empty user"]))))
-                } else {
-                    self?.presenter?.presentSearchUser(response: .init(searchResultModel: result))
+                    return
                 }
-            } else {
-                self?.presenter?.presentSearchUser(response: .init(searchResultModel: result))
             }
+            self?.presenter?.presentSearchUser(response: .init(searchResultModel: result))
         })
+    }
+    
+    func favoriteUser(request: GitHubUserSearch.FavoriteUser.Request) {
+        self.presenter?.presentFavoriteUser(response: .init(id: request.id, favorite: true))
     }
 }

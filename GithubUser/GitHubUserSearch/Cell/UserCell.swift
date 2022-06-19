@@ -13,6 +13,8 @@ final class UserCell: UITableViewCell {
     @IBOutlet var nickNameLabel: UILabel!
     @IBOutlet var favoriteButton: UIButton!
     
+    var selectFavorite: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,6 +29,10 @@ final class UserCell: UITableViewCell {
         }
         nickNameLabel.text = user.name
         favoriteButton.isSelected = user.favorite
+    }
+    
+    @IBAction func onSelectFavorite(sender: UIButton) {
+        selectFavorite?()
     }
 }
 

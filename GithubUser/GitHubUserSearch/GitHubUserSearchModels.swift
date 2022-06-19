@@ -10,7 +10,8 @@ enum GitHubUserSearch {
     struct User {
         let name: String
         let profileUrl: String
-        let favorite: Bool
+        var favorite: Bool
+        let id: Int
     }
     
     enum SearchUser {
@@ -23,7 +24,18 @@ enum GitHubUserSearch {
         }
         
         struct ViewModel {
-            let userList: [User]
+            var userList: [User]
+        }
+    }
+    
+    enum FavoriteUser {
+        struct Request {
+            let id: Int
+        }
+        
+        struct Response {
+            let id: Int
+            let favorite: Bool
         }
     }
 }
