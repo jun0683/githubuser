@@ -8,6 +8,7 @@ import UIKit
 protocol GitHubUserSearchBusinessLogic {
     func searchUser(request: GitHubUserSearch.SearchUser.Request)
     func favoriteUser(request: GitHubUserSearch.FavoriteUser.Request)
+    func updateUnFavoriteUser(id: Int)
 }
 
 protocol GitHubUserSearchDataStore {
@@ -38,5 +39,9 @@ final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUse
         if let favorite = worker?.getFavoriteID(user: request.user) {
             presenter?.presentFavoriteUser(response: .init(id: request.user.id, favorite: favorite))
         }
+    }
+    
+    func updateUnFavoriteUser(id: Int) {
+        presenter?.presentFavoriteUser(response: .init(id: id, favorite: false))
     }
 }

@@ -7,6 +7,7 @@ import UIKit
 
 protocol FavoriteUserDisplayLogic: AnyObject {
     func displayUserList(viewModel: FavoriteUser.LoadFavoriteUser.ViewModel)
+    func displayUpdateUnfavoriteUser(viewModel: FavoriteUser.UnfavoriteUser.ViewModel)
 }
 
 
@@ -17,6 +18,7 @@ final class FavoriteUserViewController: UIViewController, FavoriteUserDisplayLog
     var interactor: FavoriteUserBusinessLogic?
     var dataSource: FavoriteUserDataSource?
     var router: (NSObjectProtocol & FavoriteUserRoutingLogic & FavoriteUserDataPassing)?
+    weak var delegate: UpdateFavoriteUserDelegate?
     
     // MARK: Object lifecycle
     
@@ -69,6 +71,10 @@ final class FavoriteUserViewController: UIViewController, FavoriteUserDisplayLog
     
     func displayUserList(viewModel: FavoriteUser.LoadFavoriteUser.ViewModel) {
         tableView.reloadData()
+    }
+    
+    func displayUpdateUnfavoriteUser(viewModel: FavoriteUser.UnfavoriteUser.ViewModel) {
+        delegate?.updateUnFavoriteUser(id: viewModel.id)
     }
 }
 

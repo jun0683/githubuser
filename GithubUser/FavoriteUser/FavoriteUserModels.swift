@@ -29,5 +29,9 @@ enum FavoriteUser {
         struct Response {
             let id: Int
         }
+        
+        struct ViewModel {
+            let id: Int
+        }
     }
 }

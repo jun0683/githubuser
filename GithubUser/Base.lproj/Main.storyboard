@@ -112,15 +112,15 @@
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmC-78-BIH">
                                                             <rect key="frame" x="324" y="0.0" width="90" height="48.5"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" image="star" catalog="system"/>
                                                             <connections>
                                                                 <action selector="onSelectFavoriteWithSender:" destination="8dv-xs-xBM" eventType="touchUpInside" id="BQ3-zb-JpP"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="48" id="7kN-Wu-KJO"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="48" id="7kN-Wu-KJO"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -206,21 +206,21 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vl-vN-ZdX">
-                                                            <rect key="frame" x="106" y="0.0" width="50" height="48.5"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ns-vD-U21">
+                                                            <rect key="frame" x="106" y="0.0" width="240" height="48.5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="53a-8L-nOH">
-                                                            <rect key="frame" x="164" y="0.0" width="250" height="48.5"/>
-                                                            <state key="normal" title="Button"/>
-                                                            <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                                            <rect key="frame" x="354" y="0.0" width="60" height="48.5"/>
+                                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                            <state key="normal" image="star" catalog="system"/>
                                                             <connections>
                                                                 <action selector="onSelectFavoriteWithSender:" destination="7dW-u5-AUn" eventType="touchUpInside" id="lcu-yu-zZu"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="48" id="BvS-nO-Y1T"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="48" id="BvS-nO-Y1T"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>

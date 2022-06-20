@@ -36,5 +36,6 @@ final class FavoriteUserPresenter: FavoriteUserPresentationLogic, FavoriteUserDa
         self.viewModel = viewModel
         
         viewController?.displayUserList(viewModel: viewModel)
+        viewController?.displayUpdateUnfavoriteUser(viewModel: .init(id: response.id))
     }
 }
