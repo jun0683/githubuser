@@ -17,7 +17,34 @@ enum FavoriteUser {
         }
         
         struct ViewModel {
-            var userList: [User]
+            struct Section {
+                let sectionName: String
+                var userList: [User]
+            }
+            
+            var sections: [Section]
+            
+            func sectionCount() -> Int {
+                sections.count
+            }
+            func sectionName(section: Int) -> String {
+                guard sections.count > section else { return "?"}
+                
+                return sections[section].sectionName
+            }
+            
+            func sectionUserCount(section: Int) -> Int {
+                guard sections.count > section else { return 0}
+                
+                return sections[section].userList.count
+            }
+            
+            func user(indexPath: IndexPath) -> User? {
+                guard sections.count > indexPath.section else { return nil }
+                guard sections[indexPath.section].userList.count > indexPath.row else { return nil }
+                
+                return sections[indexPath.section].userList[indexPath.row]
+            }
         }
     }
     
@@ -27,7 +54,7 @@ enum FavoriteUser {
         }
         
         struct Response {
-            let id: Int
+            let user: User
         }
         
         struct ViewModel {

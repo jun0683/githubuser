@@ -21,7 +21,8 @@ final class FavoriteUserPresenter: FavoriteUserPresentationLogic, FavoriteUserDa
     // MARK: Do something
     
     func presentUserList(response: FavoriteUser.LoadFavoriteUser.Response) {
-        let viewModel = FavoriteUser.LoadFavoriteUser.ViewModel(userList: response.userList)
+        let sections = groupingSection(response.userList)
+        let viewModel = FavoriteUser.LoadFavoriteUser.ViewModel.init(sections: sections)
         
         self.viewModel = viewModel
         
@@ -31,11 +32,33 @@ final class FavoriteUserPresenter: FavoriteUserPresentationLogic, FavoriteUserDa
     func presentUnfavoriteUser(response: FavoriteUser.UnfavoriteUser.Response) {
         guard var viewModel = viewModel else { return }
         
-        viewModel.userList = viewModel.userList.filter({ $0.id != response.id })
+        if let sectionIndex = viewModel.sections.firstIndex(where: {
+            $0.sectionName.uppercased() == response.user.name.first!.uppercased() }) {
+            var section = viewModel.sections[sectionIndex]
+            
+            section.userList = section.userList.filter({ $0.id != response.user.id })
+            
+            if section.userList.isEmpty {
+                viewModel.sections.remove(at: sectionIndex)
+            } else {
+                viewModel.sections[sectionIndex] = section
+            }
+        }
         
         self.viewModel = viewModel
         
         viewController?.displayUserList(viewModel: viewModel)
-        viewController?.displayUpdateUnfavoriteUser(viewModel: .init(id: response.id))
+        viewController?.displayUpdateUnfavoriteUser(viewModel: .init(id: response.user.id))
+    }
+    
+    private func groupingSection(_ userList: [User]) -> [FavoriteUser.LoadFavoriteUser.ViewModel.Section] {
+        let sortedUserList = userList.sorted(by: { $0.name.localizedCompare($1.name) == .orderedAscending })
+        return Dictionary(grouping: sortedUserList, by: { user in
+            user.name.uppercased().first!
+        }).map { (key: String.Element, value: [User]) in
+            FavoriteUser.LoadFavoriteUser.ViewModel.Section.init(sectionName: String(key), userList: value)
+        }.sorted(by: {
+            $0.sectionName.localizedCompare($1.sectionName) == .orderedAscending
+        })
     }
 }

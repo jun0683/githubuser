@@ -27,6 +27,6 @@ class FavoriteUserInteractor: FavoriteUserBusinessLogic, FavoriteUserDataStore {
     func unFavoriteUser(request: FavoriteUser.UnfavoriteUser.Request) {
         worker?.unfavoriteUser(user: request.user)
         
-        presenter?.presentUnfavoriteUser(response: .init(id: request.user.id))
+        presenter?.presentUnfavoriteUser(response: .init(user: request.user))
     }
 }

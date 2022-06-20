@@ -87,16 +87,23 @@ extension FavoriteUserViewController: UISearchBarDelegate {
     }
 }
 extension FavoriteUserViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        dataSource?.viewModel?.sectionCount() ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataSource?.viewModel?.userList.count ?? 0
+        dataSource?.viewModel?.sectionUserCount(section: section) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        dataSource?.viewModel?.sectionName(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteUserCell", for: indexPath) as UITableViewCell
         
         if let cell = cell as? FavoriteUserCell,
-           dataSource?.viewModel?.userList.count ?? 0 > indexPath.row,
-           let user = dataSource?.viewModel?.userList[indexPath.row] {
+           let user = dataSource?.viewModel?.user(indexPath: indexPath) {
             cell.config(user)
             cell.selectFavorite = { [weak self] in
                 self?.interactor?.unFavoriteUser(request: .init(user: user))

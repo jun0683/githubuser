@@ -8,6 +8,7 @@ import UIKit
 protocol GitHubUserSearchPresentationLogic {
     func presentSearchUser(response: GitHubUserSearch.SearchUser.Response)
     func presentFavoriteUser(response: GitHubUserSearch.FavoriteUser.Response)
+    func presentFavoriteUserNotification(response: GitHubUserSearch.FavoriteUser.Response)
 }
 
 protocol GitHubUserSearchDataSource {
@@ -48,6 +49,11 @@ class GitHubUserSearchPresenter: GitHubUserSearchPresentationLogic, GitHubUserSe
     }
     
     func presentFavoriteUser(response: GitHubUserSearch.FavoriteUser.Response) {
+        presentFavoriteUserNotification(response: response)
+        viewController?.displayUpdateFavoriteUser()
+    }
+    
+    func presentFavoriteUserNotification(response: GitHubUserSearch.FavoriteUser.Response) {
         guard var viewModel = viewModel else { return }
         
         if let userIndex = viewModel.userList.firstIndex(where: { $0.id == response.id }) {
@@ -57,6 +63,5 @@ class GitHubUserSearchPresenter: GitHubUserSearchPresentationLogic, GitHubUserSe
         self.viewModel = viewModel
         
         viewController?.displaySearchUser(viewModel: viewModel)
-        viewController?.displayUpdateFavoriteUser()
     }
 }

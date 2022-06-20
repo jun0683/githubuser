@@ -27,9 +27,7 @@ final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUse
         worker?.searchUser(name: request.name, completion: { [weak self] result in
             if case let .success(test) = result {
                 if test.totalCount == 0 {
-                    self?.presenter?.presentSearchUser(response: .init(searchResultModel: .failure(NSError(domain: "",
-                                                                                                           code: -1,
-                                                                                                           userInfo:  [NSLocalizedDescriptionKey: "Empty user"])),
+                    self?.presenter?.presentSearchUser(response: .init(searchResultModel: .failure(NSError.emptyUser),
                                                                        savedFatoriteUserList: []))
                     return
                 }
@@ -47,6 +45,12 @@ final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUse
     }
     
     func updateUnFavoriteUser(id: Int) {
-        presenter?.presentFavoriteUser(response: .init(id: id, favorite: false))
+        presenter?.presentFavoriteUserNotification(response: .init(id: id, favorite: false))
     }
+}
+
+extension NSError {
+    static let emptyUser = NSError(domain: "",
+                                   code: -1,
+                                   userInfo:  [NSLocalizedDescriptionKey: "Empty user"])
 }
