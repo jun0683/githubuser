@@ -15,6 +15,7 @@ enum GitHubUserSearch {
         
         struct Response {
             let searchResultModel: Result<SearchResultModel, Error>
+            let savedFatoriteUserList: [User]
         }
         
         struct ViewModel {

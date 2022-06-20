@@ -25,6 +25,10 @@ final class GitHubUserSearchWorker {
         GitHubUserDB.shared.getFavoriteID(user: user)
     }
     
+    func getFavoriteUserList() -> [User] {
+        GitHubUserDB.shared.getFavoriteUserList()
+    }
+    
     private func trasform<T: Decodable>(response: AFDataResponse<T>) -> Result<T, Error> {
         switch response.result {
             case .success(let model):

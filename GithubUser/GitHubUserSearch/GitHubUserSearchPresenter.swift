@@ -21,15 +21,30 @@ class GitHubUserSearchPresenter: GitHubUserSearchPresentationLogic, GitHubUserSe
     func presentSearchUser(response: GitHubUserSearch.SearchUser.Response) {
         switch response.searchResultModel {
         case .success(let result):
-            let userList: [User] = result.items.map {
-                .init(name: $0.login, profileUrl: $0.avatarURL, favorite: $0.favorite, id: $0.id)
-            }
+            let userList: [User] = searchUserListFavoriteStateUpdate(result, response)
+            
             let viewModel = GitHubUserSearch.SearchUser.ViewModel.init(userList: userList)
+            
             self.viewModel = viewModel
+            
             viewController?.displaySearchUser(viewModel: viewModel)
         case .failure(let error):
             viewController?.displayError(error: error)
         }
+    }
+    
+    private func searchUserListFavoriteStateUpdate(_ result: (SearchResultModel), _ response: GitHubUserSearch.SearchUser.Response) -> [User] {
+        return result.items.map {
+            .init(name: $0.login, profileUrl: $0.avatarURL, favorite: $0.favorite, id: $0.id)
+        }.map({ (user: User) -> User in
+            if response.savedFatoriteUserList.contains(where: { $0.id == user.id }) {
+                var user = user
+                user.favorite = true
+                return user
+            } else {
+                return user
+            }
+        })
     }
     
     func presentFavoriteUser(response: GitHubUserSearch.FavoriteUser.Response) {

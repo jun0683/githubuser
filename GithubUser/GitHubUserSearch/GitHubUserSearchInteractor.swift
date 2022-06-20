@@ -22,14 +22,19 @@ final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUse
     // MARK: Do something
     
     func searchUser(request: GitHubUserSearch.SearchUser.Request) {
+        let savedFatoriteUserList = worker?.getFavoriteUserList() ?? []
+        
         worker?.searchUser(name: request.name, completion: { [weak self] result in
             if case let .success(test) = result {
                 if test.totalCount == 0 {
-                    self?.presenter?.presentSearchUser(response: .init(searchResultModel: .failure(NSError(domain: "", code: -1, userInfo:  [NSLocalizedDescriptionKey: "Empty user"]))))
+                    self?.presenter?.presentSearchUser(response: .init(searchResultModel: .failure(NSError(domain: "",
+                                                                                                           code: -1,
+                                                                                                           userInfo:  [NSLocalizedDescriptionKey: "Empty user"])),
+                                                                       savedFatoriteUserList: []))
                     return
                 }
             }
-            self?.presenter?.presentSearchUser(response: .init(searchResultModel: result))
+            self?.presenter?.presentSearchUser(response: .init(searchResultModel: result, savedFatoriteUserList: savedFatoriteUserList))
         })
     }
     
