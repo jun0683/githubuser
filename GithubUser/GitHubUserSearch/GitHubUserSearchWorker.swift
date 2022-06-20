@@ -8,7 +8,7 @@ import Alamofire
 
 final class GitHubUserSearchWorker {
     func searchUser(name: String, completion: @escaping (Result<SearchResultModel, Error>) -> Void) {
-        let url = "https://api.github.com/search/users?q=\(name)"
+        let url = "https://api.github.com/search/users?q=\(name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"
         let headers = HTTPHeaders(["Accept": "application/vnd.github.v3+json"])
 
         AF.request(url, headers: headers)
