@@ -61,4 +61,10 @@ enum FavoriteUser {
             let id: Int
         }
     }
+    
+    enum SearchUser {
+        struct Request {
+            let name: String
+        }
+    }
 }

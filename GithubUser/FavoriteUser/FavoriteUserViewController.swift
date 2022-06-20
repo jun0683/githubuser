@@ -79,9 +79,17 @@ final class FavoriteUserViewController: UIViewController, FavoriteUserDisplayLog
 }
 
 extension FavoriteUserViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            interactor?.loadFavoriteUser(request: .init())
+        }
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let name = searchBar.text else { return }
         guard name.isEmpty == false else { return }
+        
+        interactor?.searchUser(request: .init(name:  name))
         
         searchBar.resignFirstResponder()
     }

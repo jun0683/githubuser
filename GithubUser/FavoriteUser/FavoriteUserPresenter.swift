@@ -53,6 +53,7 @@ final class FavoriteUserPresenter: FavoriteUserPresentationLogic, FavoriteUserDa
     
     private func groupingSection(_ userList: [User]) -> [FavoriteUser.LoadFavoriteUser.ViewModel.Section] {
         let sortedUserList = userList.sorted(by: { $0.name.localizedCompare($1.name) == .orderedAscending })
+        
         return Dictionary(grouping: sortedUserList, by: { user in
             user.name.uppercased().first!
         }).map { (key: String.Element, value: [User]) in
