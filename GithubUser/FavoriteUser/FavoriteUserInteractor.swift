@@ -34,7 +34,7 @@ class FavoriteUserInteractor: FavoriteUserBusinessLogic, FavoriteUserDataStore {
     func searchUser(request: FavoriteUser.SearchUser.Request) {
         guard let userList = worker?.loadUserList() else { return }
         
-        let searcedUser = userList.filter({ $0.name.lowercased().contains(request.name.lowercased()) })
+        let searcedUser = userList.filter({ $0.name.localizedCaseInsensitiveContains(request.name)  })
         
         presenter?.presentUserList(response: .init(userList: searcedUser))
     }
