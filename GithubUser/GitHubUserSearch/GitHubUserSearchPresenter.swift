@@ -5,6 +5,12 @@
 
 import UIKit
 
+protocol GitHubUserSearchDisplayLogic: AnyObject {
+    func displaySearchUser(viewModel: GitHubUserSearch.SearchUser.ViewModel)
+    func displayUpdateFavoriteUser()
+    func displayError(error: Error)
+}
+
 protocol GitHubUserSearchPresentationLogic {
     func presentSearchUser(response: GitHubUserSearch.SearchUser.Response)
     func presentFavoriteUser(response: GitHubUserSearch.FavoriteUser.Response)

@@ -12,6 +12,12 @@
 		CE1A6DE6285DEEBD00B1A9BD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE1A6DE5285DEEBD00B1A9BD /* Kingfisher */; };
 		CE4FE6762861FE2200D19E30 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = CE4FE6752861FE2200D19E30 /* GRDB */; };
 		CE4FE6792861FE4D00D19E30 /* GitHubUserGRDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FE6782861FE4D00D19E30 /* GitHubUserGRDB.swift */; };
+		CE4FE67B286214F200D19E30 /* GitHubUserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A4285F4C3C00B3F268 /* GitHubUserDB.swift */; };
+		CE4FE67D2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FE67C2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift */; };
+		CE4FE67E2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FE67C2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift */; };
+		CE4FE680286215C700D19E30 /* GitHubUserSearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE99186B285CC5F400B3E1C0 /* GitHubUserSearchModels.swift */; };
+		CE4FE681286215CE00D19E30 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A6DE1285CD27B00B1A9BD /* Model.swift */; };
+		CE4FE6822862165500D19E30 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE3C3A6285F4FE600B3F268 /* User.swift */; };
 		CE991836285CC03000B3E1C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE991835285CC03000B3E1C0 /* AppDelegate.swift */; };
 		CE991838285CC03000B3E1C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE991837285CC03000B3E1C0 /* SceneDelegate.swift */; };
 		CE99183D285CC03000B3E1C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE99183B285CC03000B3E1C0 /* Main.storyboard */; };
@@ -52,6 +58,7 @@
 /* Begin PBXFileReference section */
 		CE1A6DE1285CD27B00B1A9BD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		CE4FE6782861FE4D00D19E30 /* GitHubUserGRDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserGRDB.swift; sourceTree = "<group>"; };
+		CE4FE67C2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserSearchWorkerProtocol.swift; sourceTree = "<group>"; };
 		CE991832285CC03000B3E1C0 /* GithubUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE991835285CC03000B3E1C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE991837285CC03000B3E1C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +174,7 @@
 			children = (
 				CEE3C38D285E1E4000B3F268 /* Cell */,
 				CE991868285CC5F400B3E1C0 /* GitHubUserSearchPresenter.swift */,
+				CE4FE67C2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift */,
 				CE991869285CC5F400B3E1C0 /* GitHubUserSearchWorker.swift */,
 				CE99186A285CC5F400B3E1C0 /* GitHubUserSearchRouter.swift */,
 				CE99186B285CC5F400B3E1C0 /* GitHubUserSearchModels.swift */,
@@ -341,6 +349,7 @@
 				CEE3C3A5285F4C3C00B3F268 /* GitHubUserDB.swift in Sources */,
 				CE99186E285CC5F400B3E1C0 /* GitHubUserSearchPresenter.swift in Sources */,
 				CE991871285CC5F400B3E1C0 /* GitHubUserSearchModels.swift in Sources */,
+				CE4FE67D2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift in Sources */,
 				CE4FE6792861FE4D00D19E30 /* GitHubUserGRDB.swift in Sources */,
 				CE991872285CC5F400B3E1C0 /* GitHubUserSearchViewController.swift in Sources */,
 				CEE3C38F285E1E7700B3F268 /* UserCell.swift in Sources */,
@@ -355,8 +364,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEE3C391285F45E100B3F268 /* GitHubUserSearchPresenter.swift in Sources */,
+				CE4FE67B286214F200D19E30 /* GitHubUserDB.swift in Sources */,
 				CEE3C392285F45EE00B3F268 /* GitHubUserSearchInteractor.swift in Sources */,
+				CE4FE67E2862153800D19E30 /* GitHubUserSearchWorkerProtocol.swift in Sources */,
+				CE4FE6822862165500D19E30 /* User.swift in Sources */,
+				CE4FE680286215C700D19E30 /* GitHubUserSearchModels.swift in Sources */,
 				CE99184D285CC03200B3E1C0 /* GithubUserTests.swift in Sources */,
+				CE4FE681286215CE00D19E30 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

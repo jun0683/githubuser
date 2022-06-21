@@ -17,9 +17,9 @@ protocol GitHubUserSearchDataStore {
 
 final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUserSearchDataStore {
     var presenter: GitHubUserSearchPresentationLogic?
-    var worker: GitHubUserSearchWorkerProtocl?
+    var worker: GitHubUserSearchWorkerProtocol?
     
-    init(worker: GitHubUserSearchWorkerProtocl?) {
+    init(worker: GitHubUserSearchWorkerProtocol?) {
         self.worker = worker
     }
     

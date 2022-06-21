@@ -5,12 +5,6 @@
 
 import UIKit
 
-protocol GitHubUserSearchDisplayLogic: AnyObject {
-    func displaySearchUser(viewModel: GitHubUserSearch.SearchUser.ViewModel)
-    func displayUpdateFavoriteUser()
-    func displayError(error: Error)
-}
-
 final class GitHubUserSearchViewController: UIViewController, GitHubUserSearchDisplayLogic {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
