@@ -7,10 +7,10 @@ import UIKit
 
 class FavoriteUserWorker {
     func loadUserList() -> [User] {
-        GitHubUserDB.shared.getFavoriteUserList()
+        GitHubUserGRDB.shared.getFavoriteUserList()
     }
     
     func unfavoriteUser(user: User) {
-        GitHubUserDB.shared.unfavoriteUser(user: user)
+        GitHubUserGRDB.shared.unfavoriteUser(user: user)
     }
 }
