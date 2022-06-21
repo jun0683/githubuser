@@ -10,6 +10,8 @@
 		CE1A6DDF285CD03D00B1A9BD /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE1A6DDE285CD03D00B1A9BD /* Alamofire */; };
 		CE1A6DE2285CD27B00B1A9BD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1A6DE1285CD27B00B1A9BD /* Model.swift */; };
 		CE1A6DE6285DEEBD00B1A9BD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CE1A6DE5285DEEBD00B1A9BD /* Kingfisher */; };
+		CE4FE6762861FE2200D19E30 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = CE4FE6752861FE2200D19E30 /* GRDB */; };
+		CE4FE6792861FE4D00D19E30 /* GitHubUserGRDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4FE6782861FE4D00D19E30 /* GitHubUserGRDB.swift */; };
 		CE991836285CC03000B3E1C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE991835285CC03000B3E1C0 /* AppDelegate.swift */; };
 		CE991838285CC03000B3E1C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE991837285CC03000B3E1C0 /* SceneDelegate.swift */; };
 		CE99183D285CC03000B3E1C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE99183B285CC03000B3E1C0 /* Main.storyboard */; };
@@ -49,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		CE1A6DE1285CD27B00B1A9BD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CE4FE6782861FE4D00D19E30 /* GitHubUserGRDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubUserGRDB.swift; sourceTree = "<group>"; };
 		CE991832285CC03000B3E1C0 /* GithubUser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubUser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE991835285CC03000B3E1C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE991837285CC03000B3E1C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4FE6762861FE2200D19E30 /* GRDB in Frameworks */,
 				CE1A6DE6285DEEBD00B1A9BD /* Kingfisher in Frameworks */,
 				CE1A6DDF285CD03D00B1A9BD /* Alamofire in Frameworks */,
 			);
@@ -104,6 +108,14 @@
 				CEE3C3A6285F4FE600B3F268 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE4FE6772861FE2F00D19E30 /* GitHubUserGRDB */ = {
+			isa = PBXGroup;
+			children = (
+				CE4FE6782861FE4D00D19E30 /* GitHubUserGRDB.swift */,
+			);
+			path = GitHubUserGRDB;
 			sourceTree = "<group>";
 		};
 		CE991829285CC03000B3E1C0 = {
@@ -197,6 +209,7 @@
 		CEE3C3A3285F4C2600B3F268 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				CE4FE6772861FE2F00D19E30 /* GitHubUserGRDB */,
 				CEE3C3A4285F4C3C00B3F268 /* GitHubUserDB.swift */,
 			);
 			path = DB;
@@ -221,6 +234,7 @@
 			packageProductDependencies = (
 				CE1A6DDE285CD03D00B1A9BD /* Alamofire */,
 				CE1A6DE5285DEEBD00B1A9BD /* Kingfisher */,
+				CE4FE6752861FE2200D19E30 /* GRDB */,
 			);
 			productName = GithubUser;
 			productReference = CE991832285CC03000B3E1C0 /* GithubUser.app */;
@@ -275,6 +289,7 @@
 			packageReferences = (
 				CE1A6DDD285CD03D00B1A9BD /* XCRemoteSwiftPackageReference "Alamofire" */,
 				CE1A6DE4285DEEBD00B1A9BD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CE4FE6742861FE2200D19E30 /* XCRemoteSwiftPackageReference "GRDB" */,
 			);
 			productRefGroup = CE991833285CC03000B3E1C0 /* Products */;
 			projectDirPath = "";
@@ -326,6 +341,7 @@
 				CEE3C3A5285F4C3C00B3F268 /* GitHubUserDB.swift in Sources */,
 				CE99186E285CC5F400B3E1C0 /* GitHubUserSearchPresenter.swift in Sources */,
 				CE991871285CC5F400B3E1C0 /* GitHubUserSearchModels.swift in Sources */,
+				CE4FE6792861FE4D00D19E30 /* GitHubUserGRDB.swift in Sources */,
 				CE991872285CC5F400B3E1C0 /* GitHubUserSearchViewController.swift in Sources */,
 				CEE3C38F285E1E7700B3F268 /* UserCell.swift in Sources */,
 				CEE3C39B285F4AD200B3F268 /* FavoriteUserWorker.swift in Sources */,
@@ -633,6 +649,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		CE4FE6742861FE2200D19E30 /* XCRemoteSwiftPackageReference "GRDB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -645,6 +669,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE1A6DE4285DEEBD00B1A9BD /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		CE4FE6752861FE2200D19E30 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE4FE6742861FE2200D19E30 /* XCRemoteSwiftPackageReference "GRDB" */;
+			productName = GRDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
