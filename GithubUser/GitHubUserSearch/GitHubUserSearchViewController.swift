@@ -38,7 +38,7 @@ final class GitHubUserSearchViewController: UIViewController, GitHubUserSearchDi
     
     private func setup() {
         let viewController = self
-        let interactor = GitHubUserSearchInteractor()
+        let interactor = GitHubUserSearchInteractor(worker: GitHubUserSearchWorker(db: GitHubUserGRDB.shared))
         let presenter = GitHubUserSearchPresenter()
         let router = GitHubUserSearchRouter()
         viewController.interactor = interactor

@@ -6,7 +6,15 @@
 import UIKit
 import Alamofire
 
-final class GitHubUserSearchWorker {
+protocol GitHubUserSearchWorkerProtocl {
+    var db: DBProtocol { get }
+    func searchUser(name: String, completion: @escaping (Result<SearchResultModel, Error>) -> Void)
+    func setFavoriteID(user: User)
+    func getFavoriteID(user: User) -> Bool
+    func getFavoriteUserList() -> [User]
+}
+
+final class GitHubUserSearchWorker: GitHubUserSearchWorkerProtocl {
     let db: DBProtocol
     
     init(db: DBProtocol) {

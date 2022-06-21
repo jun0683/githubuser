@@ -17,9 +17,11 @@ protocol GitHubUserSearchDataStore {
 
 final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUserSearchDataStore {
     var presenter: GitHubUserSearchPresentationLogic?
-    var worker: GitHubUserSearchWorker? = GitHubUserSearchWorker(db: GitHubUserGRDB.shared)
+    var worker: GitHubUserSearchWorkerProtocl?
     
-    // MARK: Do something
+    init(worker: GitHubUserSearchWorkerProtocl?) {
+        self.worker = worker
+    }
     
     func searchUser(request: GitHubUserSearch.SearchUser.Request) {
         let savedFatoriteUserList = worker?.getFavoriteUserList() ?? []
