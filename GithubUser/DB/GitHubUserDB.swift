@@ -7,7 +7,14 @@
 
 import Foundation
 
-final class GitHubUserDB {
+protocol DBProtocol {
+    func setFavoriteID(user: User)
+    func getFavoriteID(user: User) -> Bool
+    func unfavoriteUser(user: User)
+    func getFavoriteUserList() -> [User]
+}
+
+final class GitHubUserDB: DBProtocol {
     static let shared = GitHubUserDB()
     
     private init() {}
