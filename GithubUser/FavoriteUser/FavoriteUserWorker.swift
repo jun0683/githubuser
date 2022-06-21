@@ -6,11 +6,17 @@
 import UIKit
 
 class FavoriteUserWorker {
+    let db: DBProtocol
+    
+    init(db: DBProtocol) {
+        self.db = db
+    }
+    
     func loadUserList() -> [User] {
-        GitHubUserGRDB.shared.getFavoriteUserList()
+        db.getFavoriteUserList()
     }
     
     func unfavoriteUser(user: User) {
-        GitHubUserGRDB.shared.unfavoriteUser(user: user)
+        db.unfavoriteUser(user: user)
     }
 }

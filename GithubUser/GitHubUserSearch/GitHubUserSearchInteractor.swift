@@ -17,7 +17,7 @@ protocol GitHubUserSearchDataStore {
 
 final class GitHubUserSearchInteractor: GitHubUserSearchBusinessLogic, GitHubUserSearchDataStore {
     var presenter: GitHubUserSearchPresentationLogic?
-    var worker: GitHubUserSearchWorker? = GitHubUserSearchWorker()
+    var worker: GitHubUserSearchWorker? = GitHubUserSearchWorker(db: GitHubUserGRDB.shared)
     
     // MARK: Do something
     

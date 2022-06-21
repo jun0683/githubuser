@@ -17,7 +17,7 @@ protocol FavoriteUserDataStore {
 
 class FavoriteUserInteractor: FavoriteUserBusinessLogic, FavoriteUserDataStore {
     var presenter: FavoriteUserPresentationLogic?
-    var worker: FavoriteUserWorker? = FavoriteUserWorker()
+    var worker: FavoriteUserWorker? = FavoriteUserWorker(db: GitHubUserGRDB.shared)
     
     func loadFavoriteUser(request: FavoriteUser.LoadFavoriteUser.Request) {
         guard let userList = worker?.loadUserList() else { return }

@@ -7,6 +7,12 @@ import UIKit
 import Alamofire
 
 final class GitHubUserSearchWorker {
+    let db: DBProtocol
+    
+    init(db: DBProtocol) {
+        self.db = db
+    }
+    
     func searchUser(name: String, completion: @escaping (Result<SearchResultModel, Error>) -> Void) {
         let url = "https://api.github.com/search/users?q=\(name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"
         let headers = HTTPHeaders(["Accept": "application/vnd.github.v3+json"])
@@ -18,15 +24,15 @@ final class GitHubUserSearchWorker {
     }
     
     func setFavoriteID(user: User) {
-        GitHubUserGRDB.shared.setFavoriteID(user: user)
+        db.setFavoriteID(user: user)
     }
     
     func getFavoriteID(user: User) -> Bool {
-        GitHubUserGRDB.shared.getFavoriteID(user: user)
+        db.getFavoriteID(user: user)
     }
     
     func getFavoriteUserList() -> [User] {
-        GitHubUserGRDB.shared.getFavoriteUserList()
+        db.getFavoriteUserList()
     }
     
     private func trasform<T: Decodable>(response: AFDataResponse<T>) -> Result<T, Error> {
